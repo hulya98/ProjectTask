@@ -20,6 +20,7 @@ namespace ProjectTask.DAL
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.Property(e => e.CreatedDate).HasDefaultValueSql("getdate()");
+                entity.Property(e => e.IsDeleted).HasDefaultValueSql("0");
             });
 
         }

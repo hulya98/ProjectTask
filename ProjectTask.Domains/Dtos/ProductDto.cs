@@ -13,6 +13,5 @@ namespace ProjectTask.Domains.Dtos
         public int ProductCategoryId { get; set; }
         public decimal Price { get; set; }
         public string State { get; set; }
-        public bool IsDeleted { get; set; }
     }
 }

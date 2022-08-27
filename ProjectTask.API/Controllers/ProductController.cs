@@ -52,7 +52,10 @@ namespace ProjectTask.API.Controllers
         {
             if (ModelState.IsValid)
             {
-                productDto.IsDeleted = false;
+                var category = _unitOfWork.ProductCategoryRepository.Get(productDto.ProductCategoryId);
+                if (category == null)
+                    return BadRequest("This Category not exist in Category List");
+
                 Product product = _mapper.Map<Product>(productDto);
                 _unitOfWork.ProductRepository.Add(product);
                 int res = _unitOfWork.CompleteProduct();
@@ -71,8 +74,11 @@ namespace ProjectTask.API.Controllers
         {
             if (ModelState.IsValid)
             {
+                var category = _unitOfWork.ProductCategoryRepository.Get(productDto.ProductCategoryId);
+                if (category == null)
+                    return BadRequest("This Category not exist in Category List");
+
                 Product product = _mapper.Map<Product>(productDto);
-                product.IsDeleted = false;
                 _unitOfWork.ProductRepository.Update(product);
 
                 int result = _unitOfWork.CompleteProduct();
