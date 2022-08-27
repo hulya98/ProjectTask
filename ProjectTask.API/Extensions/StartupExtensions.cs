@@ -20,16 +20,18 @@ namespace ProjectTask.API.Extensions
         {
             services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductStockRepository, ProductStockRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
-        
+
         public static void ConfigureMapper(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Product));
             services.AddAutoMapper(typeof(ProductCategory));
+            services.AddAutoMapper(typeof(ProductStock));
         }
 
-       
+
 
     }
 }

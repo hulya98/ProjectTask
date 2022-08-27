@@ -21,7 +21,7 @@ namespace ProjectTask.API.Controllers
         IMapper _mapper;
         public ProductCategoryController(IMapper mapper)
         {
-            _unitOfWork = new UnitOfWork(new Context());
+            _unitOfWork = new UnitOfWork(new ProductContext());
             _mapper = mapper;
 
         }

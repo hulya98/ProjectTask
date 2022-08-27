@@ -9,7 +9,7 @@ using ProjectTask.DAL;
 
 namespace ProjectTask.DAL.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(ProductContext))]
     [Migration("20220827070805_CreateDateAllowNull")]
     partial class CreateDateAllowNull
     {

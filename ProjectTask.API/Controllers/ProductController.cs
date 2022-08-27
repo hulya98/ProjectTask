@@ -22,7 +22,7 @@ namespace ProjectTask.API.Controllers
 
         public ProductController(IMapper mapper)
         {
-            _unitOfWork = new UnitOfWork(new Context());
+            _unitOfWork = new UnitOfWork(new ProductContext());
             _mapper = mapper;
         }
 

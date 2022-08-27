@@ -12,8 +12,8 @@ namespace ProjectTask.DAL.UnitOfWork.Concrete
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private Context _context;
-        public UnitOfWork(Context context)
+        private ProductContext _context;
+        public UnitOfWork(ProductContext context)
         {
             _context = context;
             ProductCategoryRepository = new ProductCategoryRepository(_context);

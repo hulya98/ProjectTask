@@ -11,12 +11,19 @@ namespace ProjectTask.DAL.Repositories.Concrete
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
-        protected Context _context { get; set; }
+        protected ProductContext _productContext { get; set; }
+        protected ProductStockContext _productStockContext { get; set; }
         private DbSet<T> _dbSet;
-        public Repository(Context context)
+        public Repository(ProductContext productContext)
         {
-            _context = context;
-            _dbSet = _context.Set<T>();
+            _productContext = productContext;
+            _dbSet = _productContext.Set<T>();
+        }
+
+        public Repository(ProductStockContext productStockContext)
+        {
+            _productStockContext = productStockContext;
+            _dbSet = _productStockContext.Set<T>();
         }
 
         public List<T> GetAll()

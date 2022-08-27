@@ -14,10 +14,10 @@ namespace ProjectTask.DAL.Repositories.Concrete
     public class ProductCategoryRepository : Repository<ProductCategory>, IProductCategoryRepository
     {
         private DbSet<ProductCategory> _dbSet;
-        public ProductCategoryRepository(Context context) : base(context)
+        public ProductCategoryRepository(ProductContext productContext) : base(productContext)
         {
-            _context = context;
-            _dbSet = _context.Set<ProductCategory>();
+            _productContext = productContext;
+            _dbSet = _productContext.Set<ProductCategory>();
         }
 
      

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectTask.DAL
 {
-    public class Context : DbContext
+    public class ProductContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,4 +28,6 @@ namespace ProjectTask.DAL
 
         public DbSet<ProductCategory> ProductCategories { get; set; }
     }
+
+
 }

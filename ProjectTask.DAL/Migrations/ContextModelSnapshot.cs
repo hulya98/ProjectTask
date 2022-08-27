@@ -8,7 +8,7 @@ using ProjectTask.DAL;
 
 namespace ProjectTask.DAL.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(ProductContext))]
     partial class ContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

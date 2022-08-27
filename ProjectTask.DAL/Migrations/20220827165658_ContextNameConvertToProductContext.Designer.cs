@@ -10,8 +10,8 @@ using ProjectTask.DAL;
 namespace ProjectTask.DAL.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20220827052846_initialCreate")]
-    partial class initialCreate
+    [Migration("20220827165658_ContextNameConvertToProductContext")]
+    partial class ContextNameConvertToProductContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,8 +28,10 @@ namespace ProjectTask.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");

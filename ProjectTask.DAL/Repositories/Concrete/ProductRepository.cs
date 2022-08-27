@@ -14,16 +14,16 @@ namespace ProjectTask.DAL.Repositories.Concrete
     public class ProductRepository : Repository<Product>, IProductRepository
     {
         private DbSet<Product> _dbSet;
-        public ProductRepository(Context context) : base(context)
+        public ProductRepository(ProductContext productContext) : base(productContext)
         {
-            _context = context;
-            _dbSet = _context.Set<Product>();
+            _productContext = productContext;
+            _dbSet = _productContext.Set<Product>();
 
         }
 
         public List<Product> GetProducts()
         {
-            var products = _context.Products.Where(p => !p.IsDeleted).ToList();
+            var products = _productContext.Products.Where(p => !p.IsDeleted).ToList();
             return products;
         }
 
