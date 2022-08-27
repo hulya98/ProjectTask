@@ -8,7 +8,6 @@ namespace ProjectTask.Domains.Dtos
 {
     public  class AddProductStock
     {
-        public int ProductStockId { get; set; }
         public int NewAddedProductCount { get; set; }
         public int ProductId { get; set; }
     }

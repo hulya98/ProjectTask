@@ -17,15 +17,14 @@ namespace ProjectTask.DAL.Repositories.Concrete
             _productStockContext = productStockContext;
             _dbSet = _productStockContext.Set<ProductStock>();
         }
-
+    
         public void AddStock(ProductStock productStock)
         {
-
         }
 
         public void RemoveStock(ProductStock productStock)
         {
-           
+
         }
     }
 }

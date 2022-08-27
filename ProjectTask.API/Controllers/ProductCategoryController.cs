@@ -54,7 +54,7 @@ namespace ProjectTask.API.Controllers
             {
                 ProductCategory productCategory = _mapper.Map<ProductCategory>(productCategoryDto);
                 _unitOfWork.ProductCategoryRepository.Add(productCategory);
-                int res = _unitOfWork.Complete();
+                int res = _unitOfWork.CompleteProduct();
                 if (res == 0)
                     return BadRequest();
                 return StatusCode(StatusCodes.Status201Created);
@@ -71,7 +71,7 @@ namespace ProjectTask.API.Controllers
                 ProductCategory productCategory = _mapper.Map<ProductCategory>(productCategoryDto);
                 _unitOfWork.ProductCategoryRepository.Update(productCategory);
 
-                int result = _unitOfWork.Complete();
+                int result = _unitOfWork.CompleteProduct();
 
                 if (result == 0)
                     return BadRequest();
@@ -94,7 +94,7 @@ namespace ProjectTask.API.Controllers
                 return NotFound();
 
             _unitOfWork.ProductCategoryRepository.DeleteProductCategory(id);
-            int res = _unitOfWork.Complete();
+            int res = _unitOfWork.CompleteProduct();
             if (res == 0)
                 return BadRequest();
             return Ok();

@@ -9,8 +9,7 @@ namespace ProjectTask.Domains.Dtos
     public class ProductStockDto
     {
         public int ProductStockId { get; set; }
-        public int NewAddedProductCount { get; set; }
-        public int NewSoldProductCount { get; set; }
         public int ProductId { get; set; }
+        public int Count { get; set; }
     }
 }

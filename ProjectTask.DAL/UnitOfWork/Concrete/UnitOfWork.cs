@@ -12,25 +12,42 @@ namespace ProjectTask.DAL.UnitOfWork.Concrete
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private ProductContext _context;
-        public UnitOfWork(ProductContext context)
+        private ProductContext _productContext;
+        private ProductStockContext _productStockContext;
+        public UnitOfWork(ProductContext productContext)
         {
-            _context = context;
-            ProductCategoryRepository = new ProductCategoryRepository(_context);
-            ProductRepository = new ProductRepository(_context);
+            _productContext = productContext;
+            ProductCategoryRepository = new ProductCategoryRepository(_productContext);
+            ProductRepository = new ProductRepository(_productContext);
         }
+
+        public UnitOfWork(ProductStockContext productStockContext)
+        {
+            _productStockContext = productStockContext;
+            ProductStockRepository = new ProductStockRepository(_productStockContext);
+
+        }
+        public IProductStockRepository ProductStockRepository { get; set; }
         public IProductRepository ProductRepository { get; set; }
 
         public IProductCategoryRepository ProductCategoryRepository { get; set; }
 
-        public int Complete()
+        public int CompleteProduct()
         {
-            return _context.SaveChanges();
+            return _productContext.SaveChanges();
+        }
+
+        public int CompleteProductStock()
+        {
+            return _productStockContext.SaveChanges();
         }
 
         public void Dispose()
         {
-            _context.Dispose();
+            if (_productContext != null)
+                _productContext.Dispose();
+            else
+                _productStockContext.Dispose();
         }
     }
 }

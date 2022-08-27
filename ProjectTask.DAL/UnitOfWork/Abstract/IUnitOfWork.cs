@@ -12,6 +12,7 @@ namespace ProjectTask.DAL.UnitOfWork.Abstract
         IProductRepository ProductRepository { get; }
         IProductCategoryRepository ProductCategoryRepository { get; }
 
-        int Complete();
+        int CompleteProduct();
+        int CompleteProductStock();
     }
 }

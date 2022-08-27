@@ -55,7 +55,7 @@ namespace ProjectTask.API.Controllers
                 productDto.IsDeleted = false;
                 Product product = _mapper.Map<Product>(productDto);
                 _unitOfWork.ProductRepository.Add(product);
-                int res = _unitOfWork.Complete();
+                int res = _unitOfWork.CompleteProduct();
 
                 if (res == 0)
                     return BadRequest();
@@ -75,7 +75,7 @@ namespace ProjectTask.API.Controllers
                 product.IsDeleted = false;
                 _unitOfWork.ProductRepository.Update(product);
 
-                int result = _unitOfWork.Complete();
+                int result = _unitOfWork.CompleteProduct();
 
                 if (result == 0)
                     return BadRequest();
@@ -99,7 +99,7 @@ namespace ProjectTask.API.Controllers
 
             _unitOfWork.ProductRepository.Update(product);
 
-            int res = _unitOfWork.Complete();
+            int res = _unitOfWork.CompleteProduct();
 
             if (res == 0)
                 return BadRequest();
