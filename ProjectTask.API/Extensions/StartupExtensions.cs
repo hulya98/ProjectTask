@@ -23,7 +23,6 @@ namespace ProjectTask.API.Extensions
             services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
         
-        //map etmek ucun lazim olan class-lari startupa elave etmek ucundur
         public static void ConfigureMapper(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Product));

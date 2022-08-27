@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace ProjectTask.Domains.MappingProfile
 {
-    public class MappingProfile : Profile
+    public class ProductProfile : Profile
     {
-        public MappingProfile()
+        public ProductProfile()
         {
             CreateMap<Product, ProductDto>().ReverseMap();
-            CreateMap<ProductCategory, ProductCategoryDto>().ReverseMap();
         }
     }
 }
