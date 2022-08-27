@@ -11,5 +11,6 @@ namespace ProjectTask.DAL.Repositories.Abstract
     public interface IProductRepository : IRepository<Product>
     {
         List<Product> GetProducts();
+        Product GetProductIsNotDeleted(int id);
     }
 }

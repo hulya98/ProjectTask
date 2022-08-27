@@ -34,10 +34,10 @@ namespace ProjectTask.API.Controllers
             return Ok(productDtos);
         }
 
-        [HttpGet("{productId}")]
+        [HttpGet("GetProduct")]
         public IActionResult GetProduct(int id)
         {
-            Product product = _unitOfWork.ProductRepository.Get(id);
+            Product product = _unitOfWork.ProductRepository.GetProductIsNotDeleted(id);
 
             if (product == null)
                 return NotFound();
@@ -88,7 +88,7 @@ namespace ProjectTask.API.Controllers
             }
         }
 
-        [HttpDelete("{DeleteProduct}")]
+        [HttpDelete("DeleteProduct")]
         public IActionResult DeleteProduct(int id)
         {
             Product product = _unitOfWork.ProductRepository.Get(id);

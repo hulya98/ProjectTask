@@ -17,7 +17,10 @@ namespace ProjectTask.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<ProductStock>(entity =>
+            {
+                entity.Property(e => e.Count).HasDefaultValueSql("0");
+            });
         }
 
         public DbSet<ProductStock> ProductStock { get; set; }

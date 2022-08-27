@@ -11,5 +11,7 @@ namespace ProjectTask.DAL.Repositories.Abstract
     {
         void AddStock(ProductStock productStock);
         void RemoveStock(ProductStock productStock);
+        ProductStock GetProductStockByProductId(int productId);
+        void DeleteProductStockForProductId(int productId);
     }
 }

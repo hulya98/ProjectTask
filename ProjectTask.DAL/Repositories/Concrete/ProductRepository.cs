@@ -21,12 +21,18 @@ namespace ProjectTask.DAL.Repositories.Concrete
 
         }
 
+        public Product GetProductIsNotDeleted(int id)
+        {
+            var getRow = _dbSet.Where(x => x.ProductId == id && x.IsDeleted == false).FirstOrDefault();
+            return getRow;
+        }
+
         public List<Product> GetProducts()
         {
             var products = _productContext.Products.Where(p => !p.IsDeleted).ToList();
             return products;
         }
 
-    
+
     }
 }

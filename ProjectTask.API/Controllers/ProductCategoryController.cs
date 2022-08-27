@@ -34,7 +34,7 @@ namespace ProjectTask.API.Controllers
             return Ok(productCategoryDtos);
         }
 
-        [HttpGet("{productCategoryId}")]
+        [HttpGet("GetProductCategory")]
         public IActionResult GetProductCategory(int productCategoryId)
         {
             ProductCategory productCategory = _unitOfWork.ProductCategoryRepository.Get(productCategoryId);

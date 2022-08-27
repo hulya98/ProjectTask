@@ -17,9 +17,21 @@ namespace ProjectTask.DAL.Repositories.Concrete
             _productStockContext = productStockContext;
             _dbSet = _productStockContext.Set<ProductStock>();
         }
-    
+
         public void AddStock(ProductStock productStock)
         {
+        }
+
+        public void DeleteProductStockForProductId(int productId)
+        {
+            var getRow = GetProductStockByProductId(productId);
+            _dbSet.Remove(getRow);
+        }
+
+        public ProductStock GetProductStockByProductId(int productId)
+        {
+            var getRow = _dbSet.Where(x => x.ProductId == productId).FirstOrDefault();
+            return getRow;
         }
 
         public void RemoveStock(ProductStock productStock)
